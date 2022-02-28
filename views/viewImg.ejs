@@ -1,0 +1,16 @@
+<%-include('./includes/header'),{css}%>
+    <div id="app">
+        <form method="post" action="/answer">
+            <input type="text" name="answer">
+            <input type="submit">
+        </form>
+    </div>
+    <script>
+        var app = document.querySelector('#app');
+        var image = document.createElement('img');
+        image.src = localStorage.getItem('img');
+        image.style.width = '300px';
+        image.style.height = '300px';
+        app.appendChild(image);
+    </script>
+    <%-include('./includes/footer')%>

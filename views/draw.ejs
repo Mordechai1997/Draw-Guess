@@ -1,0 +1,29 @@
+<%-include('./includes/header'),{css}%>
+    <div class="canvasMain">
+        <p> word :
+            <%=word%>
+        </p>
+        <div class="sidenav">
+        </div>
+        <canvas id="demoCanvas" />
+    </div>
+    <button id="buttonSend">SEND</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.min.js"></script>
+    <script>
+        const myCanvas = new fabric.Canvas("demoCanvas", {
+            width: window.innerWidth - 200,
+            height: window.innerHeight - 100,
+            backgroundColor: "white",
+            isDrawingMode: true,
+        });
+        const bSend = document.querySelector('#buttonSend');
+        const sendImg = () => {
+            var canvas = document.getElementById('demoCanvas');
+            dataUrl = canvas.toDataURL();
+            localStorage.setItem('img', dataUrl)
+            window.location.href = `http://localhost:3008/wait/${canvas}`;
+        }
+        bSend.addEventListener('click', sendImg)
+    </script>
+    <%-include('./includes/footer')%>

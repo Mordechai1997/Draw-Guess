@@ -1,0 +1,9 @@
+<%-include('./includes/header'),{css}%>
+    <div>
+        <h1>Welcome</h1>
+        <form method='POST' action="/signin">
+            <input type="text" placeholder="Type your nickname" name="nickname"><br><br>
+            <input type="submit" value="send">
+        </form>
+    </div>
+    <%-include('./includes/footer')%>
